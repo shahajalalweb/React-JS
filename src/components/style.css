@@ -1,0 +1,27 @@
+* {
+    margin: 0px;
+    padding: 0px;   
+}
+
+.nav {
+    height: 50px;
+    width: 100%;
+    display: block;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+.navlist {
+    list-style: none;
+    display: inline-block;
+}
+
+.navlist a {
+    display: block;
+    text-decoration: none;
+    padding: 16px 15px 16px 15px;
+}
+.navlist a:hover {
+    background-color: rgb(202, 210, 210);
+    color: rgb(37, 34, 34)=
+}

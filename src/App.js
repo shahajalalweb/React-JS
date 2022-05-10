@@ -1,23 +1,32 @@
-import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Reports from './pages/Reports';
-import Products from './pages/Products';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import Navbar from './components/Navbar'; 
+import Home from './components/Home';
+import Products from './components/Products';
+import Reports from './components/Reports';
+import Error from './components/Error';
+import Dashbord from './components/Dashbord';
+
 
 function App() {
+  const isLoggedIn = false;
+
   return (
-    <>
       <Router>
         <Navbar />
         <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/reports' component={Reports} />
-          <Route path='/products' component={Products} />
+        <Route exact path="/" component={Home} />
+        <Route exact path='/products' component={Products} />
+        <Route exact path='/reports' component={Reports} />
+        <Route exact path='/dashbord' component={Dashbord} />
+
+
+        <Route exact path="/login">
+            {isLoggedIn ? <Redirect to="/dashboard" /> : <Home />}
+        </Route>
+
+        <Route component={Error} />
         </Switch>
       </Router>
-    </>
   );
 }
 
